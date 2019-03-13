@@ -14,15 +14,15 @@
 
 <mat-card [ngStyle]="{'margin-top':'10px'}">
 	<mat-card-subtitle *ngIf="imagesFound">Results</mat-card-subtitle>
-	<div *ngFor="let image of images">
+	<div *ngFor="let image of images" class="image-container">
 		<mat-card [ngStyle]="{'margin-bottom':'10px'}">
 			<a href="{{ image.pageURL }}" target="blank">
-				<mat-card-actions>
-					<div class="avatar" [ngStyle]="{'background-image':'url('+image.userImageURL+')'}"></div>
+				<mat-card-header>
+					<div class="avatar" mat-card-avatar [ngStyle]="{'background-image':'url('+ image.userImageURL +')', 'background-size':'40px 40px'}"></div>
 					<mat-card-title>User: {{ image.user }}</mat-card-title>
-				</mat-card-actions>
+				</mat-card-header>
 
-				<img src="{{ image.webformatURL }}">
+				<img mat-card-md-image src="{{ image.webformatURL }}" [ngStyle]="{'margin-top':'5px','margin-bottom':'5px'}">
 
 				<mat-card-content>
 					<p>Tags: {{ image.tags }}</p>
